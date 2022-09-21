@@ -216,6 +216,10 @@ const studentsData = [
   },
 ];
 
+app.get("/", (req, res) => {
+  res.send("Welcome students!!!");
+});
+
 app.get("/students", (req, res) => {
   if (!req) {
     res.send("Wrong API requested. SERVER NOT FOUND!!!");
@@ -228,7 +232,7 @@ app.get("/students/:ID", (req, res) => {
     (student) => student.ID === req.params.ID
   );
   if (!studentData) {
-    res.send("No student found with the give ID. SERVER NOT FOUND!!!");
+    res.send("No student found with the give ID.");
   }
   res.send(studentData);
 });
